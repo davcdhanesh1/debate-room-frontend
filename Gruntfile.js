@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         separator: ";\n"
       },
       dist: {
-        src: ['app/src/js/**/*.js'],
+        src: ['app/src/**/*.js'],
         dest: 'dist/<%= pkg.name %>.concatenate.js'
       }
     },
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 
     /* JShint to check for spelling mistake or JS errors */
     jshint: {
-      files: ['Gruntfile.js', 'app/src/js/**/*.js', 'app/test/js/**/*.js'],
+      files: ['Gruntfile.js', 'app/src/**/*.js', 'app/test/**/*.js'],
       options: {
         // options here to override JSHint defaults
         globals: {
@@ -46,33 +46,35 @@ module.exports = function(grunt) {
 
     /* runs specific tasks if one of the file changes, and also reloads the file */
     watch: {
+
       configFiles: {
         files: ['Gruntfile.js'],
         options: {
           reload: true
         }
       },
+
       templates: {
         files: ['app/src/templates/**/*.html'],
         options: {
           livereload: true
         }
       },
+
       scripts: {
         files: ['<%= jshint.files %>'],
+        tasks: ['jshint'],
         options: {
           livereload: true
-        },
-        tasks: ['jshint']
+        }
       }
     },
 
     connect: {
       server: {
         options: {
-          livereload: true,
           base: 'app',
-          port: 9000
+          livereload: true
         }
       }
     },

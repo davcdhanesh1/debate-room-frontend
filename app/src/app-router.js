@@ -1,10 +1,13 @@
 define([
   'jquery',
   'underscore',
-  'backbone'
-], function($, _, Backbone) {
+  'backbone',
+  'controllers/page-controller'
+], function($, _, Backbone, PageController) {
   var AppRouter = Backbone.Router.extend({
-    
+
+    pageController: new PageController(),
+
     routes: {
 
       //Page route
@@ -14,7 +17,7 @@ define([
     }, 
 
     homePage: function () {
-      console.log("On homepage");
+      this.pageController.renderHomePage();
     },
 
     redirectToHomePage: function () {
@@ -23,7 +26,6 @@ define([
     },
 
     start: function () {
-      var appRouter = new AppRouter();
       Backbone.history.start();
     }
 

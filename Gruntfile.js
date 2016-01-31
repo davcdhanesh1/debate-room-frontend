@@ -5,31 +5,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    /* Concatenate javascript files */
-    concat: {
-      options: {
-        separator: ";\n"
-      },
-      dist: {
-        src: ['app/src/**/*.js'],
-        dest: 'dist/<%= pkg.name %>.concatenate.js'
-      }
-    },
-
-    /* Minifies concanetated javascript files */
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
-        mangle: false,
-        beautify: true
-      },
-      dist: {
-        files: {
-          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
-        }
-      }
-    },
-
     /* JShint to check for spelling mistake or JS errors */
     jshint: {
       files: ['Gruntfile.js', 'app/src/**/*.js', 'app/test/**/*.js'],

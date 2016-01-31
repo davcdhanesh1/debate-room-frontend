@@ -81,6 +81,31 @@ module.exports = function(grunt) {
 
     clean: {
       build: ['dist']
+    },
+
+    karma: {
+      unit: {
+        options: {
+          basePath: '',
+          singleRun: true,
+          browsers: ['PhantomJS'],
+          files: [
+            {pattern: 'app/lib/**/*.js', included: false},
+            {pattern: 'app/src/**/*.js', included: false},
+            {pattern: 'app/test/**/*\-spec.js', included: false},
+            'app/test/test-main.js'
+          ],
+          frameworks: ['jasmine', 'requirejs'],
+          exclude: [
+            'app/src/main.js'
+          ],
+          reporters: ['progress'],
+          port: 9876,
+          colors: true,
+          autoWatch: false,
+          concurrency: Infinity
+        }
+      }
     }
 
   });
@@ -91,8 +116,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('test', ['jshint']);
+  grunt.registerTask('test', ['jshint', 'karma']);
   grunt.registerTask('serve', ['connect:server', 'watch']);
   grunt.registerTask('build', ['test', 'concat', 'uglify']);
 

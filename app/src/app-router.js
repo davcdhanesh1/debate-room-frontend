@@ -1,7 +1,7 @@
 define([
   'jquery',
   'underscore',
-  'backbone',
+  'backbone'
 ], function($, _, Backbone) {
   var AppRouter = Backbone.Router.extend({
     
@@ -14,11 +14,11 @@ define([
     }, 
 
     homePage: function () {
-      console.log("This should not reflect");
+      console.log("On homepage");
     },
 
     redirectToHomePage: function () {
-      console.log("redirecting someone back to homepage");
+      console.log("Redirecting back to homepage...");
       Backbone.history.navigate("", { trigger: true, replace: true });
     },
 

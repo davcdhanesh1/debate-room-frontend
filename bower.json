@@ -1,12 +1,17 @@
 {
-    "name": "debate-room",
-    "version": "0.0.0",
-    "dependencies": {
-      "backbone": "~1.2.3",
-      "requirejs": "~2.1.8",
-      "underscore": "~1.8.3",
-      "jquery": "~2.2.0",
-      "backbone.stickit": "~0.9.2"
-    },
-    "ignore": [ "**/.*", "node_modules", "components" ]
+  "name": "debate-room",
+  "version": "0.0.0",
+  "dependencies": {
+    "backbone": "~1.2.3",
+    "requirejs": "~2.1.8",
+    "underscore": "~1.8.3",
+    "jquery": "~2.2.0",
+    "backbone.stickit": "~0.9.2",
+    "jasmine-jquery": "~2.1.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
 }

@@ -1,14 +1,16 @@
 define([
   'jquery',
   'underscore',
-  'backbone'
-], function($, _, Backbone) {
+  'backbone',
+  '../views/home-page-view'
+], function($, _, Backbone, HomePageView) {
 
   function PageController(){
+    this.homePageView = new HomePageView();
   }
 
   PageController.prototype.renderHomePage = function() {
-    console.log("rendering homepage");
+    this.homePageView.render();
   };
 
   return PageController;

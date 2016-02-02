@@ -21,7 +21,7 @@ define([
     },
 
     redirectToHomePage: function () {
-      console.log("Redirecting back to homepage...");
+      console.log("Homepage pe aya re koi to bhi...");
       Backbone.history.navigate("", { trigger: true, replace: true });
     },
 

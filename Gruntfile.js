@@ -48,7 +48,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          base: 'app',
+          base: '.',
           livereload: true
         }
       }
@@ -81,6 +81,21 @@ module.exports = function(grunt) {
           concurrency: Infinity
         }
       }
+    },
+
+    requirejs: {
+      compile: {
+        options: {
+          baseUrl: "./app/src/",
+          mainConfigFile: "./app/src/main.js",
+          name: "main",
+          out: "./dist/debate-room-build.js",
+          include: [
+            "../lib/requirejs/require"
+          ],
+          insertRequire: ["main"]
+        }
+      }
     }
 
   });
@@ -89,6 +104,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('test', ['jshint', 'karma']);

@@ -45,6 +45,7 @@ module.exports = function(grunt) {
       }
     },
 
+    /* to serve index.html for local development */
     connect: {
       server: {
         options: {
@@ -89,7 +90,7 @@ module.exports = function(grunt) {
           baseUrl: "./app/src/",
           mainConfigFile: "./app/src/main.js",
           name: "main",
-          out: "./dist/debate-room-build.js",
+          out: "./dist/debate-room-dist.js",
           include: [
             "../lib/requirejs/require"
           ],

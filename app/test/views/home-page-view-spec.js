@@ -8,12 +8,20 @@ define([
 
   describe("HomePageView", function() {
 
-    it("should display the Welcome banner, when render method is called", function() {
-      var homePageView = new HomePageView({el: $("<div id=\"spy-div\"></div>")});
-      
-      homePageView.render();
+    var homePageView;
 
-      expect(homePageView.$el.text()).toEqual("Welcome to Homepage !!!");
+    beforeEach(function() {
+      homePageView = new HomePageView({el: $("<div id=\"spy-div\"></div>")});
+    });
+
+    it("should submit form when 'enterkey' is clicked", function() {
+      spyOn(homePageView, 'submit');
+      var event = $.Event("keypress");
+      event.which = 13;
+
+      homePageView.render().$el.find("#welcome-input").trigger(event);
+
+      expect(homePageView.submit).toHaveBeenCalled();
     });
 
   });

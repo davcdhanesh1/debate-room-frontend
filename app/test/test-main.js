@@ -5,8 +5,6 @@ for (var file in window.__karma__.files) {
     }
 }
 
-console.debug("Running following spec files: \n[ " + tests + " ]\n");
-
 requirejs.config({
     // Karma serves files from '/base' 
     baseUrl: '/base/app/src',

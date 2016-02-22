@@ -111,5 +111,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['jshint', 'karma']);
   grunt.registerTask('serve', ['connect:server', 'watch']);
   grunt.registerTask('build', ['test', 'requirejs']);
+  grunt.registerTask('run', ['requirejs', 'serve']);
 
 };

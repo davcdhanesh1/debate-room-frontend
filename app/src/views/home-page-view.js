@@ -5,9 +5,7 @@ define([
   '../helpers/key-press-handler'
 ],function($, _, Backbone, KeypressEventHandlerMixin ) {
   
-  var HomePageView = Backbone.View.extend(
-
-    $.extend(true, {}, KeypressEventHandlerMixin, { 
+  var HomePageView = Backbone.View.extend($.extend(true, { 
      
       el: "#main-container", 
 
@@ -18,10 +16,9 @@ define([
 
       submit: function() {
         console.log("submit called for homepage view");
-      }
+      } 
 
-    })
-  );
+    }, KeypressEventHandlerMixin));
 
   return HomePageView;
 });
